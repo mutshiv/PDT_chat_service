@@ -17,7 +17,7 @@ io.on('connection', function(socket){
   });
   socket.on('disconnect', function(){
 	io.sockets.emit('left', {userLeft : participants[socket.id]});
-	delete participants[socket.id]};
+	delete participants[socket.id];
     console.log(participants[socket.id] + ' disconnected');
   });
 });
