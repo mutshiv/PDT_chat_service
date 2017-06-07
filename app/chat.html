@@ -49,7 +49,7 @@
 		});
 	    socket.on('chat message', function(msg){
 			if(msg.message !== ""){
-				$('#messages').append($('<li>').text(msg.username + " says: " + msg.message	));
+				$('#messages').append($('<li>').text(msg.dateTime + msg.username + " says: " + msg.message	));
 			}
 		});
 		socket.on('join', function(msg){
