@@ -20,6 +20,12 @@
 	  {
 		var socket = io();
 		var name = "";
+		var timeStamp = function msgTimeStamp()
+						{
+							var dateTime = new Date();
+							var timeStamp = "(" + dateTime.getHours() + ":" + dateTime.getMinutes() + ") ";
+							return timeStamp;
+						};
 		$('#chat').hide();
 		$('#uName').focus();
 		$('form').submit(function(event){
@@ -49,6 +55,9 @@
 		});
 		socket.on('join', function(msg){
 				$('#messages').append($('<li>').text(msg.username + " has joined"));
+		});
+		socket.on('left', function(msg){
+				$('#messages').append($('<li>').text(msg.userLeft + " has left"));
 		});
 	});
   </script>
