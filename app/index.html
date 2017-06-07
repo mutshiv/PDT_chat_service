@@ -1,0 +1,21 @@
+<html>
+	<head></head>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+		$(function () {
+			var socket = io();
+			$('form').submit(function(){
+			  socket.emit('username', {username: $('#uName').val()});
+			  $('#uName').val('');
+			  return false;
+			});
+		});
+	</script>
+	<body>
+		<form action="" method="post" style="text-align:center;">
+			<input type="text" name="uName" id="uName"/>
+			<input type="submit" name="join" id="join" value="Join" />
+		</form>
+	</body>
+</html>

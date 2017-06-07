@@ -1,0 +1,14 @@
+{
+  "name": "PDTCOC Chat service",
+  "version": "0.0.1",
+  "description": "PDTCOC Chat service",
+  "author": {
+      
+         "name": "V Mutshinya",
+         "email": "vmutshinya@gmail.com"
+    },
+  "dependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^2.0.2"
+  }
+}
