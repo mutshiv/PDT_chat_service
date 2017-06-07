@@ -26,7 +26,7 @@ io.on('connection', function(socket){
   socket.on('join', function(msg){
 	io.sockets.emit('join', {username : msg.username, dateTime : msgTimeStamp()});
 	participants[socket.id] = msg.username;
-	console.log("socket ID user " + participants[socket.id]);
+	console.log("Socket ID user " + participants[socket.id]);
   });
 });
 
