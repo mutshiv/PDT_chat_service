@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>PDT COC chat service</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -48,7 +48,7 @@
 			}
 		});
 		socket.on('join', function(msg){
-				$('#participants').append($('<li>').text(msg.username + " has joined"));
+				$('#messages').append($('<li>').text(msg.username + " has joined"));
 		});
 	});
   </script>
@@ -60,7 +60,6 @@
 		</form>
 	</div>
 	<div id="chat">
-		<ul id="participants"></ul>
 		<ul id="messages"></ul>
 		<form action="" method="GET" id="chatform">
 		  <input id="m" autocomplete="off" /><button>Send</button>
