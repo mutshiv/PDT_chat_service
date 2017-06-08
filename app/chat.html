@@ -56,7 +56,7 @@
 				$('#messages').append($('<li>').text(msg.username + " has joined"));
 		});
 		socket.on('left', function(msg){
-			if(msg.userLeft !== ""){
+			if(msg.userLeft !== "" || msg.userLeft !== "undefined"){
 				$('#messages').append($('<li>').text(msg.userLeft + " has left"));}
 		});
 	});
