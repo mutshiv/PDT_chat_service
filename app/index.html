@@ -5,17 +5,32 @@
 	<script>
 		$(function () {
 			var socket = io();
-			$('form').submit(function(){
-			  socket.emit('username', {username: $('#uName').val()});
-			  $('#uName').val('');
-			  return false;
+			var data;
+			$('form').submit(function()
+			{
+				data = {eventTitle : $('#ntitle').val(), noticeType: $('#noticeType').val(), noticeMsg : $('#message').val(), eventlocation : $('#nlocation').val(), eventDate : $('#edate').val()};
+				socket.emit('noticemsg', data);
+				$('#ntitle').val('');
+				$('#nlocation').val('');
+				$('#message').val('');
+				$('#noticeType').val('none');
+				return false;
 			});
 		});
 	</script>
 	<body>
 		<form action="" method="post" style="text-align:center;">
-			<input type="text" name="uName" id="uName"/>
-			<input type="submit" name="join" id="join" value="Join" />
+			<select id="noticeType">
+				<option value="none">Default</option>
+				<option value="announcement">Announcement</option>
+				<option value="event">Event</option>
+				<option value="reminder">Reminder</option>
+			</select><br/>
+			<input type="text" id="ntitle"/><br/>
+			<input type="text" id="nlocation"/><br/>
+			<input type="date" id="edate" /> <br />
+			<textarea id="message" rows="20" cols="100" ></textarea><br/>
+			<input type="submit" name="join" id="join" value="Send Notice" />
 		</form>
 	</body>
 </html>
