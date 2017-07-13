@@ -3,16 +3,15 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var participants = {};
-
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/app/chat.html');
 });
 
-app.get('/notices', function(req, res){
+/*app.get('/notices', function(req, res){
   res.sendFile(__dirname + '/app/index.html');
-});
+});*/
 
 io.on('connection', function(socket)
 {
